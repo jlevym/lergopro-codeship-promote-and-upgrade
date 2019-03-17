@@ -1,4 +1,4 @@
-# LerGO Codeship Build
+# LerGO Codeship Build on my private jlevym github account and linked to my private jlevym codeship account (only the build-lergpro branch)
 
 > A build for LerGO running on Codeship
 
