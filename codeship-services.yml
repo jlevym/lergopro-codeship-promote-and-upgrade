@@ -4,4 +4,6 @@ lergo-build:
   build:
     image: lergo-build
     dockerfile: Dockerfile
+    args:
+      this_is_lergopro_pem  //to pass into Dockerfile	
   encrypted_env_file: env.encrypted

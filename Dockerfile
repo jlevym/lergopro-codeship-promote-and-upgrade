@@ -1,6 +1,10 @@
 FROM lergo/lergo-build-setup:latest
 
 ARG workdir=/app/lergo
+
+ARG lergopro.pem # to be passed in from service file
+
+
 WORKDIR ${workdir}
 
 RUN git clone https://github.com/lergo/lergo-ri.git
