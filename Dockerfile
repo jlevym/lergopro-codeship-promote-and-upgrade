@@ -2,14 +2,13 @@ FROM lergo/lergo-build-setup:latest
 
 ARG workdir=/app/lergo
 
-ARG lergopro.pem # to be passed in from service file
-
-
 WORKDIR ${workdir}
 
-RUN git clone https://github.com/lergo/lergo-ri.git
+#lergo-ri and lergo-protractor-tests from github/jlevym
+
+RUN git clone https://github.com/jlevym/lergo-ri.git
 RUN git clone https://github.com/lergo/lergo-ui.git
-RUN git clone https://github.com/lergo/lergo-protractor-tests.git
+RUN git clone https://github.com/jlevym/lergo-protractor-tests.git
 
 COPY scripts/install_ri.sh ${workdir}/lergo-build/scripts/install_ri.sh
 RUN /bin/bash -c ${workdir}/lergo-build/scripts/install_ri.sh
