@@ -27,18 +27,24 @@ set -e
 
 echo $CI_BUILD_ID > build.id
 
-echo pwd
 
-pushd lergo-ri
+
+cd lergo-ri
+echo 'pwd:'
+pwd
+echo 'TESTME_KEY' $TESTME_KEY
+
+echo 'creating file conf/dev/lergopro.pem'
+mkdir conf/dev && touch conf/dev/lergopro.pem
 
 echo 'decrypting lergopro pem'
-source build/decrypt_lergopro_pm.sh
 
+source build/decrypt_lergopro_pem.sh
 echo 'this is lergopro pem'
 cat conf/dev/lergopro.pem
 
 
-popd
+cd ../
 
 
 

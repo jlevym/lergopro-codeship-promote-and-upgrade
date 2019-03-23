@@ -1,6 +1,4 @@
 lergo-build:
-  cached: false
-  # cached: false # commenting out for development. should not be commented when live
   build:
     image: lergo-build
     dockerfile: Dockerfile
