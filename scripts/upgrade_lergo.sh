@@ -23,11 +23,7 @@ pushd lergo-ri
     npm install
 popd
 
-#set -e
-
-echo $CI_BUILD_ID > build.id
-
-
+set -e
 
 cd lergo-ri
 echo 'pwd:'
@@ -44,9 +40,7 @@ mkdir ~/.ssh && touch ~/.ssh/known_hosts
 ssh-keyscan -H 52.211.75.196 >> ~/.ssh/known_hosts
 export KEY_FILE=conf/dev/lergopro.pem
 
-echo 'going to run chmod 600'
 chmod 600 $KEY_FILE
-echo 'after chmod 600'
 ssh -i $KEY_FILE ubuntu@52.211.75.196 -v << EOF
 echo 'inside lergo'
 sudo service lergo upgrade && sudo service lergo stop && sudo service lergo start

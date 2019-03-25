@@ -18,16 +18,17 @@ echo finding current build number and indexing by 1
 BUILD_ID_URL="https://s3-eu-west-1.amazonaws.com/lergopro-backups/artifacts/latest/build.id"
 CURRENT_BUILD_ID=`wget --no-cache --no-check-certificate -O - $BUILD_ID_URL`
 
+
 echo check if build number is an integer
 if [[ ! "$CURRENT_BUILD_ID" =~ ^[0-9]+$ ]]; then 
   exit 1
 fi
 export BUILD_ID=$((CURRENT_BUILD_ID + 1))
+echo previous build id is $CURRENT_BUILD_ID and current build id is now $BUILD_ID
 
 export BUILD_NUMBER=${CI_STRING_TIME:-local-build-id};
-# export BUILD_ID=${CI_STRING_TIME:-local-build-id};
 export BUILD_DISPLAY_NAME=$hash${CI_COMMIT_ID:-local-build-id};
-export BUILD_TAG=CI Build;
+export BUILD_TAG=CI_Build;
 
 
 COMMITS_TEMPLATE=dist/views/version/_commits.html
@@ -41,8 +42,7 @@ cd lergo-ri
 git log  --abbrev=30 --pretty=format:"%h|%an|%ar|%s" -10 >> ../lergo-ui/$COMMITS_TEMPLATE
 cd ..
 cd lergo-ui
-echo 'the build number is ' $CI_BUILD_ID
-echo 'CI string time' $CI_STRING_TIME
+
 echo "Build Number : $BUILD_NUMBER <br/> Build ID : $BUILD_ID <br/> Build Name : $BUILD_DISPLAY_NAME <br/> Job Name : $JOB_NAME <br/> Build Tag : $BUILD_TAG <br/>" > $VERSION_TEMPLATE
 
 
@@ -67,7 +67,7 @@ popd
 
 set -e
 
-echo $CI_BUILD_ID > build.id
+echo $BUILD_ID > build.id
 
 
 \cp -f lergo-ri/dist/*.tgz $ARTIFACTS_HOME
