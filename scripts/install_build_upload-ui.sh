@@ -24,7 +24,7 @@ if [[ ! "$CURRENT_BUILD_ID" =~ ^[0-9]+$ ]]; then
   exit 1
 fi
 export BUILD_NUMBER=$((CURRENT_BUILD_ID + 1))
-echo previous build id is $CURRENT_BUILD_ID and current build id is now $BUILD_ID
+echo previous build id is $CURRENT_BUILD_ID and current build id is now $BUILD_NUMBER
 
 export BUILD_ID=${CI_STRING_TIME:-local-build-id};
 export BUILD_DISPLAY_NAME=$hash${CI_COMMIT_ID:-local-build-id};
