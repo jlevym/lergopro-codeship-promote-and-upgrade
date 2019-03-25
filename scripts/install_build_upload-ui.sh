@@ -23,10 +23,10 @@ echo check if build number is an integer
 if [[ ! "$CURRENT_BUILD_ID" =~ ^[0-9]+$ ]]; then 
   exit 1
 fi
-export BUILD_ID=$((CURRENT_BUILD_ID + 1))
+export BUILD_NUMBER=$((CURRENT_BUILD_ID + 1))
 echo previous build id is $CURRENT_BUILD_ID and current build id is now $BUILD_ID
 
-export BUILD_NUMBER=${CI_STRING_TIME:-local-build-id};
+export BUILD_ID=${CI_STRING_TIME:-local-build-id};
 export BUILD_DISPLAY_NAME=$hash${CI_COMMIT_ID:-local-build-id};
 export BUILD_TAG=CI_Build;
 
@@ -79,12 +79,8 @@ echo pwd
 
 pushd lergo-ri/build/vagrant/synced_folder/tasks
 ls -ll $ARTIFACTS_HOME
-echo
-echo 'CI_BUILD_ID' $CI_BUILD_ID
 
-echo
-echo 'AWS_ACCESS_KEY_ID' $AWS_ACCESS_KEY_ID
-echo
+# echo 'AWS_ACCESS_KEY_ID' $AWS_ACCESS_KEY_ID
 
 echo changing bucket name to lergopro-backups
 sed -i 's/lergo-backups/lergopro-backups/g' Gruntfile.js
