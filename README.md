@@ -23,3 +23,5 @@ https://stackoverflow.com/questions/53357612/how-should-i-use-codeship-encrypted
 TESTME_KEY can be found using jet-cli to decrypt env.encrypted (see commands above)
 
  - `openssl aes-256-cbc -a -salt -in dev/testMe.json -out scripts/testMe.json.enc -pass  pass:$TESTME_KEY`
+
+jeff - to trigger a build 1
