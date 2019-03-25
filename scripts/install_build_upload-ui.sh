@@ -67,7 +67,7 @@ popd
 
 set -e
 
-echo $BUILD_ID > build.id
+echo $BUILD_NUMBER > build.id
 
 
 \cp -f lergo-ri/dist/*.tgz $ARTIFACTS_HOME
