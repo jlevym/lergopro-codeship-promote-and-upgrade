@@ -1,5 +1,5 @@
-lergo-build:
+lergo-promote-and-upgrade:
   build:
-    image: lergo-build
+    image: lergo-promote-and-upgrade
     dockerfile: Dockerfile
   encrypted_env_file: env.encrypted
