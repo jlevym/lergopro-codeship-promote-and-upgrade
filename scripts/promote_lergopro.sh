@@ -6,12 +6,12 @@ set -e
 build_id=6
 echo promoting build number ${build_id}
 
-echo cd into lergo-ri for install node and npm
+echo cd into lergo-ri to install node and npm
 cd lergo-ri
 source ~/.nvm/nvm.sh
 nvm install
 
-echo cd away from package.json to prevent long npm install
+echo cd away from package.json to prevent long unecessary npm install
 cd ..
 npm install
 

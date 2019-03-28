@@ -1,1 +1,2 @@
+Adding upgrade_lergo.sh to implement upgrade after the promote
 Implemented CHANGE_NOTES.txt to trigger builds on Codeship

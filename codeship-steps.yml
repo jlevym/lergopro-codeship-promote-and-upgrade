@@ -5,6 +5,6 @@
 - name: lergo-promote 
   service: lergo-promote-and-upgrade
   command: bash -c /app/lergo/lergo-promote-and-upgrade/scripts/promote_lergopro.sh
-#- name: upgrade_lergo
-#  service: lergo-promote-and-upgrade
-#  command: bash -c /app/lergo/lergo-promote-and-upgrade/scripts/upgrade_lergo.sh
+- name: upgrade_lergo
+  service: lergo-promote-and-upgrade
+  command: bash -c /app/lergo/lergo-promote-and-upgrade/scripts/upgrade_lergo.sh
